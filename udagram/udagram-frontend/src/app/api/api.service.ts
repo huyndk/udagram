@@ -57,7 +57,7 @@ export class ApiService {
   async upload(endpoint: string, file: File, payload: any): Promise<any> {
     const signed_url = (await this.get(`${endpoint}/signed-url/${file.name}`)).url;
 
-    const headers = new HttpHeaders({'Content-Type': file.type, 
+    const headers = new HttpHeaders({'Content-Type': file.type,
                                     'Access-Control-Allow-Origin': 'http://myudagrambucket74769423.s3-website-us-east-1.amazonaws.com',
                                      'Access-Control-Request-Headers': 'Content-Type, Authorization'
                                   });
@@ -66,7 +66,7 @@ export class ApiService {
                                     headers: headers,
                                     reportProgress: true,
                                      // track progress
-                                  },);
+                                  });
 
     return new Promise ( resolve => {
         this.http.request(req).subscribe((resp) => {
