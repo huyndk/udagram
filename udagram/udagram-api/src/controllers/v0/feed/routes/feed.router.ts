@@ -13,7 +13,6 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
   }
 
   const tokenBearer = req.headers.authorization.split(' ');
-  console.log(tokenBearer);
   if (tokenBearer.length != 2) {
     return res.status(401).send({message: 'Malformed token.'});
   }
@@ -50,10 +49,6 @@ router.get('/:id',
 router.get('/signed-url/:fileName',
     requireAuth,
     async (req: Request, res: Response) => {
-      res.setHeader("Access-Control-Allow-Origin", "http://myudagrambucket74769423.s3-website-us-east-1.amazonaws.com");
-      res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
-      res.setHeader('Access-Control-Request-Headers', 'Content-Type, Authorization');
-
       const {fileName} = req.params;
       const url = AWS.getPutSignedUrl(fileName);
       res.status(201).send({url: url});
