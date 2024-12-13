@@ -55,7 +55,13 @@ export class ApiService {
 
   async upload(endpoint: string, file: File, payload: any): Promise<any> {
     const signed_url = (await this.get(`${endpoint}/signed-url/${file.name}`)).url;
-    const headers = new HttpHeaders({'Content-Type': file.type});
+    const headers = new HttpHeaders({'Content-Type': file.type,
+                                      // 'Access-Control-Allow-Origin': '$http_origin',
+                                      // 'Access-Control-Allow-Headers': 'Content-Type',
+                                      // 'Access-Control-Allow-Credentials': 'true',
+                                      // 'Access-Control-Allow-Methods': 'OPTIONS, DELETE, POST, GET, PATCH, PUT',
+                                      'Authorization': `jwt ${this.token}`
+                                    });
     const req = new HttpRequest( 'PUT', signed_url, file,
                                   {
                                     headers: headers,
