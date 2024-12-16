@@ -1,3 +1,8 @@
+### My project endpoints:
+Frontend: http://myudagrambucket74769423.s3-website-us-east-1.amazonaws.com/
+API: http://udagram-api-dev.us-east-1.elasticbeanstalk.com/api/v0/feed
+
+
 # Hosting a Full-Stack Application
 
 ### **You can use you own project completed in previous courses or use the provided Udagram app for completing this final project.**
