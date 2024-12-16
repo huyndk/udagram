@@ -1,5 +1,6 @@
 import * as dotenv from "dotenv";
 import cors from 'cors';
+import { config } from "./config/config";
 import express from "express";
 import { sequelize } from "./sequelize";
 
@@ -39,13 +40,13 @@ import { V0_FEED_MODELS, V0_USER_MODELS } from "./controllers/v0/model.index";
   }));
 
   app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', process.env.AWS_BUCKET_URL);
+    res.setHeader('Access-Control-Allow-Origin', config.aws_bucket_url);
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader("Access-Control-Allow-Headers", "*");
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     next();
   });
-  
+
   app.use("/api/v0/", IndexRouter);
 
   // Root URI call
