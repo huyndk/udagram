@@ -7,6 +7,7 @@ environment-defaults:
     repository: null
 global:
   application_name: udagram-api
+  branch: null
   default_ec2_keyname: keyvoc
   default_platform: Node.js 20
   default_region: us-east-1
@@ -14,6 +15,7 @@ global:
   instance_profile: null
   platform_name: null
   platform_version: null
-  profile: eb-cli
+  profile: null
+  repository: null
   sc: null
   workspace_type: Application

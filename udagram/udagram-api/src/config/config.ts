@@ -14,6 +14,7 @@ export const config = {
   aws_region: process.env.AWS_REGION,
   aws_profile: process.env.AWS_PROFILE,
   aws_media_bucket: process.env.AWS_BUCKET,
+  aws_bucket_url: process.env.AWS_BUCKET_URL,
   aws_access_key: process.env.AWS_ACCESS_KEY_ID,
   aws_secret: process.env.AWS_SECRET_ACCESS_KEY,
   url: process.env.URL,
